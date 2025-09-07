@@ -1,4 +1,4 @@
-package org.lsposed.hiddenapibypass;
+package red.androhidapi;
 
 import android.os.Build;
 import android.util.Log;

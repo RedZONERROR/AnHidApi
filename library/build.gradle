@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library' version '8.8.0'
+}
+
+android {
+    compileSdk 35
+    buildToolsVersion "35.0.1"
+    namespace "red.androhidapi.library"
+
+    buildFeatures {
+        androidResources false
+        buildConfig true
+    }
+    defaultConfig {
+        minSdk 1
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    testOptions {
+        targetSdk 35
+    }
+    buildTypes {
+        release {
+            consumerProguardFiles "consumer-rules.pro"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    packaging {
+        resources {
+            excludes += ["/META-INF/**", "/*.properties"]
+        }
+    }
+}
+
+dependencies {
+    compileOnly project(':stub')
+    implementation 'androidx.annotation:annotation:1.9.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test:rules:1.6.1'
+    androidTestCompileOnly project(':stub')
+}
+

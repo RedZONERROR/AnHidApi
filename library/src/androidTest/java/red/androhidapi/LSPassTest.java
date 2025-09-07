@@ -1,4 +1,4 @@
-package org.lsposed.hiddenapibypass;
+package red.androhidapi;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;

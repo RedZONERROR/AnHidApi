@@ -1,7 +1,7 @@
 -dontwarn dalvik.system.VMRuntime
 
--if class org.lsposed.hiddenapibypass.HiddenApiBypass
--keepclassmembers class org.lsposed.hiddenapibypass.Helper$* { *; }
+-if class red.androhidapi.HiddenApiBypass
+-keepclassmembers class red.androhidapi.Helper$* { *; }
 
 -assumenosideeffects class android.util.Property{
     public static *** of(...);

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lsposed.hiddenapibypass;
+package red.androhidapi;
 
 import android.os.Build;
 import android.util.Log;
@@ -23,7 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import org.lsposed.hiddenapibypass.library.BuildConfig;
+import red.androhidapi.library.BuildConfig;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;

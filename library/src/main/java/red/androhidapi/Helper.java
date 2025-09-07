@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lsposed.hiddenapibypass;
+package red.androhidapi;
 
 import java.lang.invoke.MethodType;
 import java.util.HashSet;

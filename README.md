@@ -1,10 +1,27 @@
-# Android Hidden Api Bypass
+# Android Hidden Api Bypass (Fork)
 
-[![Android CI status](https://github.com/LSPosed/AndroidHiddenApiBypass/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/LSPosed/AndroidHiddenApiBypass/actions/workflows/android.yml)
 ![](https://img.shields.io/badge/Android-1.0%20--%2016-blue.svg)
-![](https://img.shields.io/maven-central/v/org.lsposed.hiddenapibypass/hiddenapibypass.svg)
+[![GitHub](https://img.shields.io/github/license/RedZONERROR/AnHidApi)](https://github.com/RedZONERROR/AnHidApi/blob/main/LICENSE)
+
+**Fork of [LSPosed/AndroidHiddenApiBypass](https://github.com/LSPosed/AndroidHiddenApiBypass)** with renamed packages to avoid conflicts.
 
 Bypass restrictions on non-SDK interfaces.
+
+## 🔄 Fork Information
+
+This repository is a fork of the original [AndroidHiddenApiBypass](https://github.com/LSPosed/AndroidHiddenApiBypass) by [LSPosed](https://github.com/LSPosed). 
+
+**Package Name Changes:**
+- **Original**: `org.lsposed.hiddenapibypass`
+- **This Fork**: `red.androhidapi`
+
+**Reason for Fork:**
+This fork was created to resolve package name conflicts when using multiple applications or libraries that depend on the same package namespace. By renaming the package, we avoid conflicts with other implementations while maintaining full functionality.
+
+**Credits:**
+- Original implementation: [LSPosed Team](https://github.com/LSPosed)
+- Original repository: https://github.com/LSPosed/AndroidHiddenApiBypass
+- Fork maintainer: [RedZONERROR](https://github.com/RedZONERROR)
 
 ## Why HiddenApiBypass?
 
@@ -30,19 +47,32 @@ Google Play doesn't allow apps to use hidden APIs, reporting library usage will 
 you need to disable dependencies info reporting in build.gradle.
 Remember to update this library to latest version to be compatible with new Android version.
 
+### Local Integration (Recommended)
+
+Since this is a fork with renamed packages, it's recommended to integrate it as a local module:
+
 ```gradle
+// In your settings.gradle
+include ':library'
+include ':stub'
+
+// In your module's build.gradle
 android {
     dependenciesInfo {
         includeInApk = false
         includeInBundle = false
     }
 }
-repositories {
-    mavenCentral()
-}
+
 dependencies {
-    implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:+'
+    implementation project(':library')
 }
+```
+
+### Git Submodule Integration
+
+```bash
+git submodule add https://github.com/RedZONERROR/AnHidApi.git
 ```
 
 ## Usage
@@ -50,6 +80,12 @@ dependencies {
 This library has two variants of bypassing, they have the same API.
 When initializing, LSPass is faster than HiddenApiBypass, but LSPass maybe blocked in future Android releases.
 Replace `HiddenApiBypass` with `LSPass` if you do not want to use `Unsafe`.
+
+**Note:** Import statements use the renamed package:
+```java
+import red.androhidapi.HiddenApiBypass;
+import red.androhidapi.LSPass;
+```
 
 1. Invoke a restricted method:
     ```java
@@ -91,9 +127,26 @@ Replace `HiddenApiBypass` with `LSPass` if you do not want to use `Unsafe`.
     ```java
     HiddenApiBypass.addHiddenApiExemptions("");
     ```
+## 🔗 Links
+
+- **This Fork**: https://github.com/RedZONERROR/AnHidApi.git
+- **Original Repository**: https://github.com/LSPosed/AndroidHiddenApiBypass
+- **Original Documentation**: https://github.com/LSPosed/AndroidHiddenApiBypass/blob/main/README.md
+
+## 📝 Changelog
+
+### Fork Changes
+- Renamed package from `org.lsposed.hiddenapibypass` to `red.androhidapi`
+- Updated build configuration for local integration
+- Added conflict resolution documentation
+- Maintained full API compatibility
+- Converted from Kotlin DSL to Gradle (Groovy) build files
+- Added demo application for testing
+
 ## License
 
     Copyright 2021-2025 LSPosed
+    Fork modifications: RedZONERROR
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
